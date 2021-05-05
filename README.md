@@ -1,6 +1,6 @@
 # CeneoScraperS12
 ## Etap 1 Ekstrakcja pojedynczej opinii o produkcie, którego kod będzie wpisany w kodzie programu
-### 1. analiza struktury opinii w serwisie [Ceneo.pl](https://www.ceneo.pl)
+### 1. Analiza struktury opinii w serwisie [Ceneo.pl](https://www.ceneo.pl)
 
 |Składowa|Selektor CSS|Nazwa zmiennej|Typ danych|
 |--------|------------|--------------|----------|
@@ -18,7 +18,7 @@
 |Dla ilu osób przydatna|span[id^="votes-yes"]|useful|int|
 |Dla ilu osób nieprzydatna|span[id^="votes-no"]|useless|int|
 
-### 2. pobranie składowych pojedynczej opinii
+### 2. Pobranie składowych pojedynczej opinii
 - pobranie kodu pojedynczej strony z opiniami
 - wyodrębnienie z kodu strony kodu pojedynczej opinii
 - pobranie do pojedynczych zmiennych poszczególnych składowych na podstawie selektorów
@@ -30,10 +30,25 @@
 - zdefiniowanie listy do przechowywanie wszystkich opinii o danym produkcie
 - dodanie pętli, która wykonuje operację ekstrakcji dla wszystkich opinii pobranych z pojedynczej strony
 
-## Etap 3 Ekstrakcja wszystkich opinii o produkcie w wszystkich stron
+## Etap 3 Ekstrakcja wszystkich opinii o produkcie z wszystkich stron
 - dodanie pętli, która pobiera i analizuje kolejne strony z opiniami o produkcie 
 - dodanie możliwości podania kodu produktu "z klawiatury"
 - dodanie zapisu wszystkich opinii o produkcie do pliku .json
 
 ## Etap 4 Refactoring
-- 
+- zdefiniowanie funkcji do ekstrakcji pojedynczego elementu opinii
+- przygotowanie słownika opisującego składowe opinii wraz z ich selektorami
+- tworzenie słownika reprezentujacego pojedynczą opinię przy wykorzystaniu wyrażenia słownikowego (dictionary comprehension)
+
+## Etap 5 Analiza statystyczna zbioru opinii o produkcie
+- wyświetlenie listy produktów, dla których pobrane zostały opinie
+- wczytanie opinii o wskazanym produkcie do obiektu DataFrame
+- obliczenie podstawowych statystyk
+    * średnia ocena produktu
+    * liczba opinii o produkcie
+    * liczba opinii dla których podana została liczba zalet
+    * liczba opinii dla których podana została liczba wad
+
+## Etap 6 Rysowanie wykresów opartych o dane z pobranych opinii
+- wykres słupkowy/kolumnowy obrazujący czestość wystepowania opinii z poszczególnymi ocenami
+- wykres kołowy obrazujący udział poszczególnych rodzajów rekomendacji w zbiorze opinii
